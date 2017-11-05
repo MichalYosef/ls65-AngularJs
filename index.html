@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app='my-app'>
+
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File {{i}}</title>
+  <script src="../node_modules/angular/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <div ng-controller="booksCtrl">
+    <div ng-repeat="(key, value) in books">
+      <h2>{{value.name}}</h2>
+      isbn:
+      <span>{{value.isbn}}</span>
+      <img width={{value.img.width}} ng-src={{value.img.src}} />
+      <br>
+      <button ng-click="addItem(value.isbn)">
+        Add {{ value.isbn }} to cart
+      </button>
+    </div>
+  </div>
+<hr>
+  <div ng-controller="showCartCtrl">
+    {{ items }}
+    <button ng-click="getCart()">Show cart</button>
+  </div>
+
+  <div>
+
+  </div>
+
+</body>
+
+</html>
